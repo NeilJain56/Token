@@ -8,10 +8,22 @@ class Form extends Component {
   render() {
     return (
         <div>
-          <FormGroup>
-            <FormControl>
-            </FormControl>
-          </FormGroup>
+          <form>
+            <FormGroup controlID="Card Form">
+              <FormControl placeholder="Name on Card">
+              </FormControl>
+              <FormControl placeholder="Card Number">
+              </FormControl>
+              <FormControl placeholder="Expiration Date">
+              </FormControl>
+              <FormControl placeholder="CVC">
+              </FormControl>
+              <FormControl placeholder="How Much Do You Want To Charge This Card?">
+              </FormControl>
+              <Button>
+              </Button>
+            </FormGroup>
+          </form>
         </div>
       );
   }
