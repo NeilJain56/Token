@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Form from './Form'
+import Card from './Card';
+import Form from './Form';
 
 class App extends Component {
 
   render() {
     return (
         <div class="Token">
+        <Card />
         <Form/>
         </div>
       );
