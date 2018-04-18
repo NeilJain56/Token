@@ -7,7 +7,6 @@ class App extends Component {
   //let addedCard = '';
   constructor(props, context) {
     super(props, context);
-    //this is a sample comment
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
