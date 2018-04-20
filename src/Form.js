@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 import 'react-credit-cards/lib/styles.scss';
-import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
+import './Form.css'
+import {FormGroup, FormControl} from 'react-bootstrap';
 
 class Form extends Component {
   constructor(){
@@ -57,40 +58,42 @@ class Form extends Component {
   render() {
     return (
         <div>
-          <form>
-            <Cards
-              number={this.state.num}
-              name={this.state.name}
-              expiry={this.state.date}
-              cvc={this.state.cvc}
-              focused={this.state.focused}
-            />
-            <ControlLabel>Name On Card</ControlLabel>
-            <FormGroup controlID="cardName">
-              <FormControl placeholder="e.g. John Doe" id="name" onChange={this.nameChanged.bind(this)} value={this.state.name}>
-              </FormControl>
-            </FormGroup>
-            <ControlLabel>Card Number</ControlLabel>
-            <FormGroup controlID="cardNumber" validationState={this.validateCard()}>
-              <FormControl placeholder="0000-0000-0000-0000" id="number" onChange={this.cardChanged.bind(this)} value={this.state.num}>
-              </FormControl>
-            </FormGroup>
-            <ControlLabel>Expiration Date</ControlLabel>
-            <FormGroup controlID="cardExp" validationState={this.validateExp()}>
-              <FormControl placeholder="MM/YY" id="exp" onChange={this.expChanged.bind(this)} value={this.state.date}>
-              </FormControl>
-            </FormGroup>
-            <ControlLabel>CVC</ControlLabel>
-            <FormGroup controlID="cardCVC" validationState={this.validateCVC()}>
-              <FormControl placeholder="000" id="cvc" onChange={this.cvcChanged.bind(this)} value={this.state.cvc}>
-              </FormControl>
-            </FormGroup>
-            <ControlLabel>Amount</ControlLabel>
-            <FormGroup controlID="cardCharge">
-              <FormControl placeholder="e.g. 1.00" id="charge" onChange={this.chargeChanged.bind(this)} value={this.state.charge}>
-              </FormControl>
-            </FormGroup>
-          </form>
+          <div className="container center_div">
+            <form>
+              <Cards
+                number={this.state.num}
+                name={this.state.name}
+                expiry={this.state.date}
+                cvc={this.state.cvc}
+                focused={this.state.focused}
+              />
+              <div>Name On Card</div>
+              <FormGroup controlid="cardName">
+                <FormControl placeholder="e.g. John Doe" id="name" onChange={this.nameChanged.bind(this)} value={this.state.name}>
+                </FormControl>
+              </FormGroup>
+              <div>Card Number</div>
+              <FormGroup controlid="cardNumber" validationState={this.validateCard()}>
+                <FormControl placeholder="0000-0000-0000-0000" id="number" onChange={this.cardChanged.bind(this)} value={this.state.num}>
+                </FormControl>
+              </FormGroup>
+              <div>Expiration Date</div>
+              <FormGroup controlid="cardExp" validationState={this.validateExp()}>
+                <FormControl placeholder="MM/YY" id="exp" onChange={this.expChanged.bind(this)} value={this.state.date}>
+                </FormControl>
+              </FormGroup>
+              <div>CVC</div>
+              <FormGroup controlid="cardCVC" validationState={this.validateCVC()}>
+                <FormControl placeholder="000" id="cvc" onChange={this.cvcChanged.bind(this)} value={this.state.cvc}>
+                </FormControl>
+              </FormGroup>
+              <div>Amount</div>
+              <FormGroup controlid="cardCharge">
+                <FormControl placeholder="e.g. 1.00" id="charge" onChange={this.chargeChanged.bind(this)} value={this.state.charge}>
+                </FormControl>
+              </FormGroup>
+            </form>
+          </div>
         </div>
       );
   }
