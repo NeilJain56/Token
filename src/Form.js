@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 import 'react-credit-cards/lib/styles.scss';
-import { Button, text, FormGroup, FormControl} from 'react-bootstrap';
+import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
 
 class Form extends Component {
   constructor(){
@@ -52,6 +52,7 @@ class Form extends Component {
   }
   chargeChanged(e){
     this.setState({charge: e.target.value});
+    this.setState({focused: "name"});
   }
   render() {
     return (
@@ -64,24 +65,29 @@ class Form extends Component {
               cvc={this.state.cvc}
               focused={this.state.focused}
             />
+            <ControlLabel>Name On Card</ControlLabel>
             <FormGroup controlID="cardName">
-              <FormControl placeholder="Name on Card" id="name" onChange={this.nameChanged.bind(this)} value={this.state.name}>
+              <FormControl placeholder="e.g. John Doe" id="name" onChange={this.nameChanged.bind(this)} value={this.state.name}>
               </FormControl>
             </FormGroup>
+            <ControlLabel>Card Number</ControlLabel>
             <FormGroup controlID="cardNumber" validationState={this.validateCard()}>
-              <FormControl placeholder="Enter Card Number" id="number" onChange={this.cardChanged.bind(this)} value={this.state.num}>
+              <FormControl placeholder="0000-0000-0000-0000" id="number" onChange={this.cardChanged.bind(this)} value={this.state.num}>
               </FormControl>
             </FormGroup>
+            <ControlLabel>Expiration Date</ControlLabel>
             <FormGroup controlID="cardExp" validationState={this.validateExp()}>
-              <FormControl placeholder="Enter Expiration Date" id="exp" onChange={this.expChanged.bind(this)} value={this.state.date}>
+              <FormControl placeholder="MM/YY" id="exp" onChange={this.expChanged.bind(this)} value={this.state.date}>
               </FormControl>
             </FormGroup>
+            <ControlLabel>CVC</ControlLabel>
             <FormGroup controlID="cardCVC" validationState={this.validateCVC()}>
-              <FormControl placeholder="Enter CVC" id="cvc" onChange={this.cvcChanged.bind(this)} value={this.state.cvc}>
+              <FormControl placeholder="000" id="cvc" onChange={this.cvcChanged.bind(this)} value={this.state.cvc}>
               </FormControl>
             </FormGroup>
+            <ControlLabel>Amount</ControlLabel>
             <FormGroup controlID="cardCharge">
-              <FormControl placeholder="Enter Amount To Charge" id="charge" onChange={this.chargeChanged.bind(this)} value={this.state.charge}>
+              <FormControl placeholder="e.g. 1.00" id="charge" onChange={this.chargeChanged.bind(this)} value={this.state.charge}>
               </FormControl>
             </FormGroup>
           </form>
